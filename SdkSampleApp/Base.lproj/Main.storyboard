@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SdkSampleApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yHC-zM-TrH">
+                                <rect key="frame" x="123" y="132" width="129" height="36"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a sample application to experience the Pureprofile SDK" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y4s-JS-iuk">
+                                <rect key="frame" x="64" y="200" width="247" height="72"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logging in..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h5j-ve-geQ">
+                                <rect key="frame" x="143" y="386" width="89" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QpQ-Ap-gPb">
+                                <rect key="frame" x="32" y="304" width="311" height="50"/>
+                                <color key="backgroundColor" red="0.12549019610000001" green="0.83921568629999999" blue="0.78823529410000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="12" maxX="0.0" maxY="12"/>
+                                <state key="normal" title="Open Pureprofile">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <state key="disabled">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="openPureprofile:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pmI-Nh-ikc"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="ldq-cY-coa">
+                                <rect key="frame" x="244" y="386" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q1c-Ig-PEu" userLabel="Retry button">
+                                <rect key="frame" x="244" y="384" width="24" height="24"/>
+                                <state key="normal" image="Refresh">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="retryLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8Jg-i8-a0k"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LargeLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Bpf-zx-UwD">
+                                <rect key="frame" x="144.5" y="36" width="86" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="86" id="KBu-Xr-VKS"/>
+                                    <constraint firstAttribute="height" constant="80" id="drx-xa-FXW"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.21176470588235294" green="0.25098039215686274" blue="0.32549019607843138" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="yHC-zM-TrH" firstAttribute="top" secondItem="Bpf-zx-UwD" secondAttribute="bottom" constant="16" id="1c7-7r-Cc6"/>
+                            <constraint firstItem="h5j-ve-geQ" firstAttribute="top" secondItem="QpQ-Ap-gPb" secondAttribute="bottom" constant="32" id="F38-Zm-mXm"/>
+                            <constraint firstItem="q1c-Ig-PEu" firstAttribute="centerY" secondItem="h5j-ve-geQ" secondAttribute="centerY" id="GAQ-gF-B4R"/>
+                            <constraint firstItem="Bpf-zx-UwD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GJg-Cy-Ttl"/>
+                            <constraint firstItem="QpQ-Ap-gPb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="IeP-Sm-Vn7"/>
+                            <constraint firstItem="h5j-ve-geQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Li2-j7-rZ5"/>
+                            <constraint firstItem="ldq-cY-coa" firstAttribute="centerY" secondItem="h5j-ve-geQ" secondAttribute="centerY" id="PeC-ON-Zq3"/>
+                            <constraint firstItem="Bpf-zx-UwD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="UF0-dI-pnm"/>
+                            <constraint firstItem="QpQ-Ap-gPb" firstAttribute="top" secondItem="Y4s-JS-iuk" secondAttribute="bottom" constant="32" id="aLi-CV-6YD"/>
+                            <constraint firstItem="ldq-cY-coa" firstAttribute="leading" secondItem="h5j-ve-geQ" secondAttribute="trailing" constant="12" id="d20-eP-P7j"/>
+                            <constraint firstAttribute="trailing" secondItem="Y4s-JS-iuk" secondAttribute="trailing" constant="64" id="f14-Ql-v0s"/>
+                            <constraint firstItem="q1c-Ig-PEu" firstAttribute="leading" secondItem="h5j-ve-geQ" secondAttribute="trailing" constant="12" id="hUG-cY-ape"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QpQ-Ap-gPb" secondAttribute="trailing" constant="32" id="lxN-72-00S"/>
+                            <constraint firstItem="Y4s-JS-iuk" firstAttribute="top" secondItem="yHC-zM-TrH" secondAttribute="bottom" constant="32" id="ml5-jH-AnB"/>
+                            <constraint firstItem="Y4s-JS-iuk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="64" id="sSf-vM-bPQ"/>
+                            <constraint firstItem="yHC-zM-TrH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xkN-tk-T0J"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="activity" destination="ldq-cY-coa" id="FjM-6d-Z9p"/>
+                        <outlet property="openButton" destination="QpQ-Ap-gPb" id="CwO-H7-8to"/>
+                        <outlet property="retryButton" destination="q1c-Ig-PEu" id="gH8-bO-Sz3"/>
+                        <outlet property="statusLabel" destination="h5j-ve-geQ" id="Bzg-mU-yNm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="140" y="132.68365817091455"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="LargeLogo" width="256" height="324"/>
+        <image name="Refresh" width="24" height="24"/>
+    </resources>
+</document>
