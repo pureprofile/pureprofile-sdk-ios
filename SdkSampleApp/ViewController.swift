@@ -27,7 +27,6 @@ func pureprofileLogin(parameters: [String:String], completionHandler: @escaping 
             decoder.keyDecodingStrategy = .convertFromSnakeCase
             
             let token: PureprofileToken = try decoder.decode(PureprofileToken.self, from: data)
-            print(token)
             completionHandler(token.ppToken)
         } catch let error {
             print("Error: \(error)")
@@ -38,7 +37,18 @@ func pureprofileLogin(parameters: [String:String], completionHandler: @escaping 
 }
 
 struct PureprofileToken: Decodable {
+    /**
+     ppToken - Used when calling open method of the SDK
+     */
     let ppToken: String
+    /**
+     instanceUrl - Used when calling the transactions API. See https://github.com/pureprofile/ios-sdk/blob/master/PureprofileSDK/README.md#integrate-sdk-in-your-app for more
+     */
+    let instanceUrl: String
+    /**
+     instanceCode - Used when calling the transactions API. See https://github.com/pureprofile/ios-sdk/blob/master/PureprofileSDK/README.md#integrate-sdk-in-your-app for more
+     */
+    let instanceCode: String
 }
 
 class ViewController: UIViewController {
@@ -68,7 +78,7 @@ class ViewController: UIViewController {
     
     private func login() {
         /**
-         panelKey - key which identifies partner or app, obtained by Pureprofile, contact us at product@pureprofile.com
+         panelKey - key which identifies partner or app, obtained by Pureprofile. Contact us at product@pureprofile.com to get one
          panelSecret - secret paired with panelKey, obtained by Pureprofile
          userKey - unique identifier of each user, see README.md for more
          email - email that can be used to match user (optional)
