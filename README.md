@@ -41,7 +41,7 @@ $ pod install
 
 ### Manual Integration
 
-[Download the Pureprofile SDK](https://devtools.pureprofile.com/surveys/ios/latest/PureprofileSDK.zip), extract the zip and follow the instructions below to manually integrate the SDK to your Xcode project. 
+[Download](https://devtools.pureprofile.com/surveys/ios/latest/PureprofileSDK.zip) the latest Pureprofile SDK, extract the zip and follow the instructions below to manually integrate the SDK to your Xcode project. 
 
 1) Add Purerpofile SDK as an Embedded Binary
 
@@ -129,9 +129,9 @@ open class PureprofilePayment: NSObject {
 }
 ```
 
-The transactions API can also be used for quering Pureprofile about a transaction. The payment uuid (as returned in `PureprofilePayment`) will have to be passed as a parameter to the end-point:
+The transactions API can also be used for querying Pureprofile about a transaction. The payment uuid (as returned in `PureprofilePayment`) will have to be passed as a parameter to the end-point. Values `instanceUrl` and `instanceCode` are returned from the login API. Please see the sample app [code](https://github.com/pureprofile/pureprofile-sdk-ios/blob/master/SdkSampleApp/ViewController.swift#L45) for more.
 ```
-GET https://staging-ah-api.pureprofile.com/api/v1/pp-au/transactions/<payment-uuid>
+GET https://<instanceUrl>/api/v1/<instanceCode>/transactions/<payment-uuid>
 
 HTTP/1.1 200 OK
 
