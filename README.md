@@ -41,7 +41,7 @@ $ pod install
 
 ### Manual Integration
 
-[Download](https://devtools.pureprofile.com/surveys/ios/latest/PureprofileSDK.zip) the latest Pureprofile SDK, extract the zip and follow the instructions below to manually integrate the SDK to your Xcode project. 
+[Download](https://devtools.pureprofile.com/surveys/ios/latest/PureprofileSDK.zip) the latest Pureprofile SDK, extract the zip and follow the instructions below to manually integrate the SDK to your Xcode project.
 
 1) Add Purerpofile SDK as an Embedded Binary
 
@@ -76,26 +76,40 @@ You are now ready to use the Pureprofile SDK and allow the users of your app to 
 
 The first step before accessing the Pureprofile SDK is to obtain a login token from Pureprofile. You can do that by calling Pureprofile's [login API]("https://pp-auth-api.pureprofile.com/api/v1/panel/login") where you have to pass the following parameters in the POST call:
 
-| Property name | Type          | Mandatory | Description 
+| Property name | Type          | Mandatory | Description
 |---------------|---------------|:---------:|-------------
 | panelKey      | String(UUID)  | Yes       | key which identifies partner or app and obtained by Pureprofile
 | panelSecret   | String(UUID)  | Yes       | secret key assigned to partner
-| userKey       | String        | Yes       | unique identifier of each user (see below for more) 
+| userKey       | String        | Yes       | unique identifier of each user (see below for more)
 | email         | String(Email) |           | email that can be used to match user
 
 Response body:
 
-| Property name | Type          | Description 
+| Property name | Type          | Description
 |---------------|---------------|-------------
 | ppToken       | String(UUID)  | Token that is passed to SDK so it can communicate with Pureprofile's servers
 
 The values of  `panelKey` and `panelSecret` are provided by Pureprofile and are used to identify you as Pureprofile's partner. [Get in touch with us](mailto:product@pureprofile.com) to find out how to obtain the panel keys.
 
-The `userKey` is used for uniquely identifying each one of your users. It is recommended that a UUID is used as `userKey` value and that this UUID never changes so that we can always identify your users in our systems in order to offer them better targeted surveys with maximum yield. There is no restriction though as to the type of user key that is used which means that your user's email or phone number or any other identifier is also accepted. Beware though that in this case if the user identifier ever changes, for example when your user changes his/her email, the next time the user with the changed identifier is logged in to Pureprofile, a new Pureprofile user will be created which means that all targeting information we hold for the said user will no longer be usable and will have to be recreated. The `email` key is optional and can be used to match a `userKey` with an email. 
+The `userKey` is used for uniquely identifying each one of your users. It is recommended that a UUID is used as `userKey` value and that this UUID never changes so that we can always identify your users in our systems in order to offer them better targeted surveys with maximum yield. There is no restriction though as to the type of user key that is used which means that your user's email or phone number or any other identifier is also accepted. Beware though that in this case if the user identifier ever changes, for example when your user changes his/her email, the next time the user with the changed identifier is logged in to Pureprofile, a new Pureprofile user will be created which means that all targeting information we hold for the said user will no longer be usable and will have to be recreated. The `email` key is optional and can be used to match a `userKey` with an email.
 
 For testing and evaluation purposes Pureprofile provides a public partner account which can be used for running the sample app or for integrating the SDK with your app for evaluation purposes. A full example of how to log in a user, as well as the public partner keys can be found in the source code of the sample app. Bare in mind though that storing sensitive data (such as the panel key and secret) in the source files is not considered good practice and we therefore strongly suggest to employ a secure, server to server communication for obtaining the ppToken from Pureprofile. In this case the login service is called from your server after the authenticity of the client has been verified. See the diagram below for a depiction on how to login via an intermediate secure service.
 
 ![alt text](https://devtools.pureprofile.com/surveys/ios/assets/server2server_login.png)
+
+#### Membership limit reached
+
+As part of the login process it is possible to encounter the 'membership limit reached' error case which is triggered when the number of your users that have already used at least once the SDK has reached the limit that Pureprofile can accept at the time. The error case is signified with HTTP error code 403 and the body of the response contains error code _panel_membership_limit_reached_ as it can be seen in the example below. An example of how to handle the error in your application can be found in the source code of the sample app. The membership limit is configurable and when you get in touch with Pureprofile you can discuss and set it according to your membership requirements.
+```
+{
+  "statusCode": 403,
+  "error": "Forbidden",
+  "message": "We're unable to register you for the panel at this time as the limit of panel members has been reached.",
+  "data": {
+    "code": "panel_membership_limit_reached"
+  }
+}
+```
 
 ### Integrate SDK in your app
 
@@ -114,7 +128,7 @@ Objective-C example:
 ```objectivec
 @import PureprofileSDK;
 #import <PureprofileSDK/PureprofileSDK-Swift.h>
- 
+
 [[Pureprofile new] openFromViewController:self loginToken:@"token" paymentHandler:^(PureprofilePayment * _Nonnull payment) {
     NSLog(@"Received payment of %f with payment uuid %@", payment.value, payment.uuid);
 }];

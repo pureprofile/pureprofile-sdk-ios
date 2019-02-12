@@ -31,7 +31,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logging in..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h5j-ve-geQ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logging in..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h5j-ve-geQ">
                                 <rect key="frame" x="143" y="386" width="89" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -87,6 +87,8 @@
                             <constraint firstItem="h5j-ve-geQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Li2-j7-rZ5"/>
                             <constraint firstItem="ldq-cY-coa" firstAttribute="centerY" secondItem="h5j-ve-geQ" secondAttribute="centerY" id="PeC-ON-Zq3"/>
                             <constraint firstItem="Bpf-zx-UwD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="UF0-dI-pnm"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="h5j-ve-geQ" secondAttribute="trailing" constant="32" id="Uvx-dy-ZkD"/>
+                            <constraint firstItem="h5j-ve-geQ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="YZN-dW-bhF"/>
                             <constraint firstItem="QpQ-Ap-gPb" firstAttribute="top" secondItem="Y4s-JS-iuk" secondAttribute="bottom" constant="32" id="aLi-CV-6YD"/>
                             <constraint firstItem="ldq-cY-coa" firstAttribute="leading" secondItem="h5j-ve-geQ" secondAttribute="trailing" constant="12" id="d20-eP-P7j"/>
                             <constraint firstAttribute="trailing" secondItem="Y4s-JS-iuk" secondAttribute="trailing" constant="64" id="f14-Ql-v0s"/>

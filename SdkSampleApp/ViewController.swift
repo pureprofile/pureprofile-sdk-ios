@@ -9,8 +9,18 @@
 import UIKit
 import PureprofileSDK
 
-func pureprofileLogin(parameters: [String:String], completionHandler: @escaping (String?) -> Swift.Void) {
-    guard let url = URL(string: "https://pp-auth-api.pureprofile.com/api/v1/panel/login") else { completionHandler(nil); return }
+enum Result<Value, Error : Swift.Error> {
+    case success(Value)
+    case failure(Error)
+}
+
+enum LoginError : Error {
+    case membershipLimitReached
+    case loginFailed
+}
+
+func pureprofileLogin(parameters: [String:String], completionHandler: @escaping (Result<PureprofileLoginModel, LoginError>) -> Swift.Void) {
+    guard let url = URL(string: "https://pp-auth-api.pureprofile.com/api/v1/panel/login") else { completionHandler(.failure(.loginFailed)); return }
     
     let request = NSMutableURLRequest(url: url)
     request.httpMethod = "POST"
@@ -19,24 +29,38 @@ func pureprofileLogin(parameters: [String:String], completionHandler: @escaping 
     request.httpBody = try! JSONSerialization.data(withJSONObject: parameters, options: [])
     
     let task = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
-        guard let data = data else { completionHandler(nil); return }
+        guard let data = data, let response = response as? HTTPURLResponse else { completionHandler(.failure(.loginFailed)); return }
         
-        do {
-            let decoder = JSONDecoder()
-            decoder.dateDecodingStrategy = .iso8601
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
-            
-            let token: PureprofileToken = try decoder.decode(PureprofileToken.self, from: data)
-            completionHandler(token.ppToken)
-        } catch let error {
-            print("Error: \(error)")
-            completionHandler(nil)
+        if response.statusCode >= 400 {
+            //In case of HTTP 403 error code it is advisable to check for the panel_membership_limit_reached error case to inform
+            //your users that the quota membership limit has been reached.
+            //See https://github.com/pureprofile/ios-sdk/blob/master/PureprofileSDK/README.md#membership-limit-reached for more
+            if response.statusCode == 403, let json = try? JSONSerialization.jsonObject(with: data, options: []),
+                let jsonDict = json as? [String: Any],
+                let dataError = jsonDict["data"] as? [String: String],
+                dataError["code"] == "panel_membership_limit_reached" {
+                completionHandler(.failure(.membershipLimitReached))
+            } else {
+                completionHandler(.failure(.loginFailed))
+            }
+        } else {
+            do {
+                let decoder = JSONDecoder()
+                decoder.dateDecodingStrategy = .iso8601
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                
+                let model: PureprofileLoginModel = try decoder.decode(PureprofileLoginModel.self, from: data)
+                completionHandler(.success(model))
+            } catch let error {
+                print("Error: \(error)")
+                completionHandler(.failure(.loginFailed))
+            }
         }
     }
     task.resume()
 }
 
-struct PureprofileToken: Decodable {
+struct PureprofileLoginModel: Decodable {
     /**
      ppToken - Used when calling open method of the SDK
      */
@@ -85,22 +109,28 @@ class ViewController: UIViewController {
          */
         let parameters = ["panelKey": "f986e3ac-32c9-42e9-944d-9801dbe28d97", "panelSecret": "c0e6b322-f654-4583-8202-3136504e7843",
                           "userKey": "3467b2a9-c463-4fe5-96a3-e5c3c8934bcc", "email": "sdktest@pureprofile.com"]
-        pureprofileLogin(parameters: parameters)  { token in
-                                        if let token = token {
-                                            self.pureprofileToken = token
-                                            
-                                            DispatchQueue.main.async {
-                                                self.openButton.isEnabled = true
-                                                self.statusLabel.text = "Ready!"
-                                                self.activity.stopAnimating()
-                                            }
-                                        } else {
-                                            DispatchQueue.main.async {
-                                                self.activity.stopAnimating()
-                                                self.statusLabel.text = "Login failed, please try again"
-                                                self.retryButton.isHidden = false
-                                            }
-                                        }
+        pureprofileLogin(parameters: parameters)  { result in
+            switch result {
+            case .success(let loginModel):
+                self.pureprofileToken = loginModel.ppToken
+                
+                DispatchQueue.main.async {
+                    self.openButton.isEnabled = true
+                    self.statusLabel.text = "Ready!"
+                    self.activity.stopAnimating()
+                }
+            case .failure(let error):
+                var errorMessage = "Login failed, please try again"
+                if error == .membershipLimitReached {
+                    errorMessage = "Membership limit has been reached. Please try again later"
+                }
+                
+                DispatchQueue.main.async {
+                    self.activity.stopAnimating()
+                    self.statusLabel.text = errorMessage
+                    self.retryButton.isHidden = false
+                }
+            }
         }
     }
     
