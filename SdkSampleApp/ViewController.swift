@@ -34,7 +34,7 @@ func pureprofileLogin(parameters: [String:String], completionHandler: @escaping 
         if response.statusCode >= 400 {
             //In case of HTTP 403 error code it is advisable to check for the panel_membership_limit_reached error case to inform
             //your users that the quota membership limit has been reached.
-            //See https://github.com/pureprofile/ios-sdk/blob/master/PureprofileSDK/README.md#membership-limit-reached for more
+            //See https://github.com/pureprofile/pureprofile-sdk-ios#membership-limit-reached for more
             if response.statusCode == 403, let json = try? JSONSerialization.jsonObject(with: data, options: []),
                 let jsonDict = json as? [String: Any],
                 let dataError = jsonDict["data"] as? [String: String],
@@ -66,11 +66,11 @@ struct PureprofileLoginModel: Decodable {
      */
     let ppToken: String
     /**
-     instanceUrl - Used when calling the transactions API. See https://github.com/pureprofile/ios-sdk/blob/master/PureprofileSDK/README.md#integrate-sdk-in-your-app for more
+     instanceUrl - Used when calling the transactions API. See https://github.com/pureprofile/pureprofile-sdk-ios#integrate-sdk-in-your-app for more
      */
     let instanceUrl: String
     /**
-     instanceCode - Used when calling the transactions API. See https://github.com/pureprofile/ios-sdk/blob/master/PureprofileSDK/README.md#integrate-sdk-in-your-app for more
+     instanceCode - Used when calling the transactions API. See https://github.com/pureprofile/pureprofile-sdk-ios#integrate-sdk-in-your-app for more
      */
     let instanceCode: String
 }
