@@ -186,19 +186,6 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 
 
-@class NSCoder;
-@class UIEvent;
-
-/// Checkbox is a simple, animation free checkbox and UISwitch alternative designed
-/// to be performant and easy to implement.
-SWIFT_CLASS("_TtC14PureprofileSDK8Checkbox")
-@interface Checkbox : UIControl
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
-- (void)drawRect:(CGRect)rect;
-- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent * _Nullable)event SWIFT_WARN_UNUSED_RESULT;
-@end
-
 @class UIViewController;
 @class PureprofilePayment;
 
@@ -218,6 +205,7 @@ SWIFT_CLASS("_TtC14PureprofileSDK18PureprofilePayment")
 + (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
 @end
 
+@class NSCoder;
 
 SWIFT_CLASS("_TtC14PureprofileSDK18RadialGradientView")
 @interface RadialGradientView : UIView
