@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B74BFBE0229D552600D94249 /* PureprofileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B74BFBDF229D552600D94249 /* PureprofileSDK.framework */; };
-		B74BFBE1229D552600D94249 /* PureprofileSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B74BFBDF229D552600D94249 /* PureprofileSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B76CAFD322A7E319005DD826 /* PureprofileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B76CAFD222A7E319005DD826 /* PureprofileSDK.framework */; };
+		B76CAFD422A7E319005DD826 /* PureprofileSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B76CAFD222A7E319005DD826 /* PureprofileSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B7CFFEEA21AD939600708BC6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CFFEE921AD939600708BC6 /* AppDelegate.swift */; };
 		B7CFFEEC21AD939600708BC6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CFFEEB21AD939600708BC6 /* ViewController.swift */; };
 		B7CFFEEF21AD939600708BC6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7CFFEED21AD939600708BC6 /* Main.storyboard */; };
@@ -23,7 +23,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				B74BFBE1229D552600D94249 /* PureprofileSDK.framework in Embed Frameworks */,
+				B76CAFD422A7E319005DD826 /* PureprofileSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -31,7 +31,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		B74BFBDF229D552600D94249 /* PureprofileSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PureprofileSDK.framework; sourceTree = "<group>"; };
+		B76CAFD222A7E319005DD826 /* PureprofileSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PureprofileSDK.framework; sourceTree = "<group>"; };
 		B7CFFEE621AD939600708BC6 /* SdkSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SdkSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7CFFEE921AD939600708BC6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B7CFFEEB21AD939600708BC6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -46,7 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B74BFBE0229D552600D94249 /* PureprofileSDK.framework in Frameworks */,
+				B76CAFD322A7E319005DD826 /* PureprofileSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,7 +56,7 @@
 		B7CFFEDD21AD939500708BC6 = {
 			isa = PBXGroup;
 			children = (
-				B74BFBDF229D552600D94249 /* PureprofileSDK.framework */,
+				B76CAFD222A7E319005DD826 /* PureprofileSDK.framework */,
 				B7CFFEE821AD939600708BC6 /* SdkSampleApp */,
 				B7CFFEE721AD939600708BC6 /* Products */,
 			);
