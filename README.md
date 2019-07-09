@@ -160,3 +160,10 @@ HTTP/1.1 200 OK
     "ppToken": "pureprofile-token"
 }
 ```
+
+### Count of available surveys
+In order to obtain the total number of all and paid surveys at the time of the call you can use:  
+```swift
+public func countOfAvailableSurveys(loginToken: String, handler: @escaping (_ allSurveys: Int, _ paidSurveys: Int) -> Void)
+```
+You have to pass the login token obtained at the login step detailed above and through the callback you will receive two integers, one for all available surveys and one for the count of paid surveys.
