@@ -192,6 +192,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 SWIFT_CLASS("_TtC14PureprofileSDK11Pureprofile")
 @interface Pureprofile : NSObject
 - (void)openFromViewController:(UIViewController * _Nonnull)fromViewController loginToken:(NSString * _Nonnull)loginToken paymentHandler:(void (^ _Nonnull)(PureprofilePayment * _Nonnull))paymentHandler;
+- (void)countOfAvailableSurveysWithLoginToken:(NSString * _Nonnull)loginToken handler:(void (^ _Nonnull)(NSInteger, NSInteger))handler;
 - (UIViewController * _Nonnull)getFeedViewControllerWithLoginToken:(NSString * _Nonnull)loginToken SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
