@@ -7,7 +7,7 @@ Pureprofile is a survey platform that delivers surveys through the web and mobil
 ## Project setup
 
 ### Prerequisites
-In order to use the SDK in your app you must have Xcode 10.1 with Swift 4.2 installed on your system. For the latest versions of Xcode, please visit [Apple’s iOS Dev Center](https://developer.apple.com/download/).
+In order to use the framework in your app you must have Xcode 11.0 with Swift 5.1 or later installed on your system. For the latest versions of Xcode, please visit [Apple’s iOS Dev Center](https://developer.apple.com/download/).
 
 ### Run time requirements
 
