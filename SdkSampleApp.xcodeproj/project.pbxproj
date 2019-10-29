@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B773978B23609282008F26AE /* PureprofileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B773978A23609282008F26AE /* PureprofileSDK.framework */; };
-		B773978C23609282008F26AE /* PureprofileSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B773978A23609282008F26AE /* PureprofileSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B7070077236873D100B1F8CB /* PureprofileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7070076236873D100B1F8CB /* PureprofileSDK.framework */; };
+		B7070078236873D100B1F8CB /* PureprofileSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B7070076236873D100B1F8CB /* PureprofileSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B7CFFEEA21AD939600708BC6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CFFEE921AD939600708BC6 /* AppDelegate.swift */; };
 		B7CFFEEC21AD939600708BC6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CFFEEB21AD939600708BC6 /* ViewController.swift */; };
 		B7CFFEEF21AD939600708BC6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7CFFEED21AD939600708BC6 /* Main.storyboard */; };
@@ -23,7 +23,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				B773978C23609282008F26AE /* PureprofileSDK.framework in Embed Frameworks */,
+				B7070078236873D100B1F8CB /* PureprofileSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -31,7 +31,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		B773978A23609282008F26AE /* PureprofileSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PureprofileSDK.framework; sourceTree = "<group>"; };
+		B7070076236873D100B1F8CB /* PureprofileSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PureprofileSDK.framework; sourceTree = "<group>"; };
 		B7CFFEE621AD939600708BC6 /* SdkSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SdkSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7CFFEE921AD939600708BC6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B7CFFEEB21AD939600708BC6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -46,7 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B773978B23609282008F26AE /* PureprofileSDK.framework in Frameworks */,
+				B7070077236873D100B1F8CB /* PureprofileSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,7 +86,7 @@
 		B7D7FF7D23572E70003C28CD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B773978A23609282008F26AE /* PureprofileSDK.framework */,
+				B7070076236873D100B1F8CB /* PureprofileSDK.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -345,7 +345,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.1;
+				MARKETING_VERSION = 1.3.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pureprofile.SdkSampleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -370,7 +370,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.1;
+				MARKETING_VERSION = 1.3.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pureprofile.SdkSampleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
