@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B770790F2450513600E21ED6 /* PureprofileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B770790D24504E4500E21ED6 /* PureprofileSDK.framework */; };
 		B77079102450513600E21ED6 /* PureprofileSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B770790D24504E4500E21ED6 /* PureprofileSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B770791224509A8C00E21ED6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B770791124509A8C00E21ED6 /* README.md */; };
 		B7CFFEEA21AD939600708BC6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CFFEE921AD939600708BC6 /* AppDelegate.swift */; };
 		B7CFFEEC21AD939600708BC6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CFFEEB21AD939600708BC6 /* ViewController.swift */; };
 		B7CFFEEF21AD939600708BC6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7CFFEED21AD939600708BC6 /* Main.storyboard */; };
@@ -32,6 +33,7 @@
 
 /* Begin PBXFileReference section */
 		B770790D24504E4500E21ED6 /* PureprofileSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PureprofileSDK.framework; sourceTree = "<group>"; };
+		B770791124509A8C00E21ED6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B7CFFEE621AD939600708BC6 /* SdkSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SdkSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7CFFEE921AD939600708BC6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B7CFFEEB21AD939600708BC6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 		B7CFFEDD21AD939500708BC6 = {
 			isa = PBXGroup;
 			children = (
+				B770791124509A8C00E21ED6 /* README.md */,
 				B7CFFEE821AD939600708BC6 /* SdkSampleApp */,
 				B7CFFEE721AD939600708BC6 /* Products */,
 				B7D7FF7D23572E70003C28CD /* Frameworks */,
@@ -154,6 +157,7 @@
 			files = (
 				B7CFFEF421AD939800708BC6 /* LaunchScreen.storyboard in Resources */,
 				B7CFFEF121AD939800708BC6 /* Assets.xcassets in Resources */,
+				B770791224509A8C00E21ED6 /* README.md in Resources */,
 				B7CFFEEF21AD939600708BC6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
