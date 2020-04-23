@@ -15,7 +15,7 @@ The minimum iOS version supported by the SDK is iOS 10.0.
 
 ## Installation method
 
-You can get the Pureprofile SDK either via CocoaPods or by manually downloading and installing it in your Xcode project.
+You can get the Pureprofile SDK either via CocoaPods or by manually installing it in your Xcode project.
 
 ### CocoaPods
 
@@ -43,16 +43,18 @@ $ pod install
 
 [Download](https://devtools.pureprofile.com/surveys/ios/latest/PureprofileSDK.zip) the latest Pureprofile SDK, extract the zip and follow the instructions below to manually integrate the SDK to your Xcode project.
 
-1) Add Purerpofile SDK as an Embedded Binary
+1) Add Purerpofile SDK in Xcode
 
-From Xcode, select your project target and on the General tab scroll at the ‘Embedded Binaries’ section. Drag'n'drop PureprofileSDK.framework into that section checking the __Copy items if needed__ checkbox if you want the framework file to be copied locally to your project.
+Drag and drop the PureprofileSDK.framework bundle in Xcode's document outline pane and check the __Copy items if needed__ checkbox in the window that appears next.
+Select your project target in the document outline. In the General tab, PureprofileSDK.framework will be listed in the *Frameworks, Libraries and Embedded binaries* section and from there select __Embed & Sign__ as shown in the screenshot below. 
+
 ![alt text](https://devtools.pureprofile.com/surveys/ios/assets/Xcode_embedded_binaries_screenshot.jpg)
 
 2) Always embed Swift standard library build setting (not needed if project already contains Swift code)
 
 For projects with Objective-C only code, you have to set the 'Always embed Swift standard library' setting to yes in you project's Build Settings.
 
-3) Add the custom script in the build phases
+3) (Optional) Add the custom script in the build phases 
 
 Add a new Run Script phase in your target’s Build Phases. Make sure this Run Script phase is below the Embed Frameworks build phase (You can drag and drop build phases to rearrange them).
 
@@ -167,3 +169,62 @@ In order to obtain the total number of all and paid surveys at the time of the c
 public func countOfAvailableSurveys(loginToken: String, handler: @escaping (_ allSurveys: Int, _ paidSurveys: Int) -> Void)
 ```
 You have to pass the login token obtained at the login step detailed above and through the callback you will receive two integers, one for all available surveys and one for the count of paid surveys.
+
+### Landscape support
+Some surveys are better displayed in landscape mode so from version 1.4.0 landscape support has been added for the surveys that require it. If your app already works in landscape there's nothing you need to do, landscape will automatically work for SDK too. If it doesn't, adding the code below, will add landscape support in your app but specifically for the Pureprofile SDK. Meaning that landscape will be enabled only when the SDK view controllers that can handle orientation changes will be in foreground. You don't have to take any other consideration for handling orientation changes in any of your view controllers as they will still work only in portrait mode.
+
+In your AppDelegate add the following code:    
+```swift
+func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+    if let rootViewController = window?.rootViewController,
+        let topViewController = topViewController(with: rootViewController),
+        let rotableViewController = topViewController as? PureprofileSDK.RotatableViewController {
+        return rotableViewController.supportedOrientations
+    }
+
+    return .portrait
+}
+
+private func topViewController(with rootViewController: UIViewController) -> UIViewController? {
+    if let tabVC = rootViewController as? UITabBarController, let selectedVC = tabVC.selectedViewController {
+        return topViewController(with: selectedVC)
+    } else if let navVC = rootViewController as? UINavigationController, let visibleVC = navVC.visibleViewController {
+        return topViewController(with: visibleVC)
+    } else if let presented = rootViewController.presentedViewController {
+        return topViewController(with: presented)
+    }
+    return rootViewController
+}
+```
+
+```objectivec
+- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
+    if (window && window.rootViewController) {
+        UIViewController *topVC = [self _topViewControllerWithRootViewController:window.rootViewController];
+        if (topVC && [topVC conformsToProtocol:@protocol(RotatableViewController)]) {
+            id<RotatableViewController> rotatableVC = (id<RotatableViewController>)topVC;
+            return rotatableVC.supportedOrientations;
+        }
+    }
+    
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+- (UIViewController *)_topViewControllerWithRootViewController:(UIViewController *)rootViewController {
+    if ([rootViewController isKindOfClass:[UITabBarController class]]) {
+        UITabBarController *tabVC = (UITabBarController *)rootViewController;
+        if (tabVC.selectedViewController) {
+            return [self _topViewControllerWithRootViewController:tabVC.selectedViewController];
+        }
+    } else if ([rootViewController isKindOfClass:[UINavigationController class]]) {
+        UINavigationController *navVC = (UINavigationController *)rootViewController;
+        if (navVC.visibleViewController) {
+            return [self _topViewControllerWithRootViewController:navVC.visibleViewController];
+        }
+    } else if (rootViewController.presentedViewController) {
+        return [self _topViewControllerWithRootViewController:rootViewController.presentedViewController];
+    }
+    
+    return rootViewController;
+}
+```
