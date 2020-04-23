@@ -45,8 +45,8 @@ $ pod install
 
 1) Add Purerpofile SDK in Xcode
 
-Drag and drop the PureprofileSDK.framework bundle in Xcode's document outline pane and check the __Copy items if needed__ checkbox in the window that appears next.
-Select your project target in the document outline. In the General tab, PureprofileSDK.framework will be listed in the *Frameworks, Libraries and Embedded binaries* section and from there select __Embed & Sign__ as shown in the screenshot below. 
+Drag and drop the PureprofileSDK.framework bundle in Xcode's document outline pane (1) and check the __Copy items if needed__ checkbox in the window that appears next.
+Select your project in the document outline, in the General tab, PureprofileSDK.framework will be listed in the *Frameworks, Libraries and Embedded Content* section (2) and from there select __Embed & Sign__ as shown in the screenshot below. 
 
 ![alt text](https://devtools.pureprofile.com/surveys/ios/assets/Xcode_embedded_binaries_screenshot.jpg)
 
@@ -171,7 +171,7 @@ public func countOfAvailableSurveys(loginToken: String, handler: @escaping (_ al
 You have to pass the login token obtained at the login step detailed above and through the callback you will receive two integers, one for all available surveys and one for the count of paid surveys.
 
 ### Landscape support
-Some surveys are better displayed in landscape mode so from version 1.4.0 landscape support has been added for the surveys that require it. If your app already works in landscape there's nothing you need to do, landscape will automatically work for SDK too. If it doesn't, adding the code below, will add landscape support in your app but specifically for the Pureprofile SDK. Meaning that landscape will be enabled only when the SDK view controllers that can handle orientation changes will be in foreground. You don't have to take any other consideration for handling orientation changes in any of your view controllers as they will still work only in portrait mode.
+Some surveys are better displayed in landscape mode so from version 1.4.0 landscape support has been added for the surveys that require it. If your app already works in landscape there's nothing you need to do, landscape will automatically work for the SDK too. If it doesn't, adding the code below, will add landscape support in your app but specifically for the Pureprofile SDK. Meaning that landscape will be enabled only when the SDK view controllers that can handle orientation changes will be in foreground. You don't have to take any other consideration for handling orientation changes in any of your view controllers as they will still work only in portrait mode.
 
 In your AppDelegate add the following code:    
 ```swift
