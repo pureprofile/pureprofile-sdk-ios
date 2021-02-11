@@ -7,7 +7,7 @@ Pureprofile is a survey platform that delivers surveys through the web and mobil
 ## Project setup
 
 ### Prerequisites
-In order to use the framework in your app you must have Xcode 11.0 with Swift 5.1 or later installed on your system. For the latest versions of Xcode, please visit [Apple’s iOS Dev Center](https://developer.apple.com/download/).
+In order to use the framework in your app you must have Xcode 12.0 or later installed on your system. For the latest versions of Xcode, please visit [Apple’s iOS Dev Center](https://developer.apple.com/download/).
 
 ### Run time requirements
 
@@ -45,8 +45,7 @@ $ pod install
 
 1) Add Purerpofile SDK in Xcode
 
-Drag and drop the PureprofileSDK.framework bundle in Xcode's document outline pane (1) and check the __Copy items if needed__ checkbox in the window that appears next.
-Select your project in the document outline, in the General tab, PureprofileSDK.framework will be listed in the *Frameworks, Libraries and Embedded Content* section (2) and from there select __Embed & Sign__ as shown in the screenshot below. 
+Drag and drop the PureprofileSDK.xcframework bundle to the *Frameworks, Libraries and Embedded Content* section (2) and from there select __Embed & Sign__ as shown in the screenshot below. 
 
 ![alt text](https://devtools.pureprofile.com/surveys/ios/assets/Xcode_embedded_binaries_screenshot.jpg)
 
@@ -54,21 +53,7 @@ Select your project in the document outline, in the General tab, PureprofileSDK.
 
 For projects with Objective-C only code, you have to set the 'Always embed Swift standard library' setting to yes in you project's Build Settings.
 
-3) (Optional) Add the custom script in the build phases 
-
-Add a new Run Script phase in your target’s Build Phases. Make sure this Run Script phase is below the Embed Frameworks build phase (You can drag and drop build phases to rearrange them).
-
-Paste the following line in this Run Script Phase’s script text field:
-
-```
-bash "$BUILT_PRODUCTS_DIR/$FRAMEWORKS_FOLDER_PATH/PureprofileSDK.framework/strip-frameworks.sh"
-```
-
-This script works around the [App Store submission bug](http://www.openradar.me/radar?id=6409498411401216) triggered by universal binaries that contain bitcode. It also copies the frameworks’ .bcsymbolmap files into your target’s .xcarchive. These .bcsymbolmap files are needed if you want to include app symbols in order for your application to receive symbolicated crash logs from Apple when you upload it to the App Store.  
-
-![alt text](https://devtools.pureprofile.com/surveys/ios/assets/Xcode_run_script_phase_screenshot.png)
-
-4) Installation complete!
+3) Installation complete!
 
 You are now ready to use the Pureprofile SDK and allow the users of your app to take Pureprofile surveys and earn rewards! Learn how below in our Quick Start guide.
 
