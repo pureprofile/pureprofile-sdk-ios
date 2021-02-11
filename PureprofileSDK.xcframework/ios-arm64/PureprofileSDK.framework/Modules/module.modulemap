@@ -1,0 +1,11 @@
+framework module PureprofileSDK {
+  umbrella header "PureprofileSDK.h"
+
+  export *
+  module * { export * }
+}
+
+module PureprofileSDK.Swift {
+    header "PureprofileSDK-Swift.h"
+    requires objc
+}

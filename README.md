@@ -11,7 +11,7 @@ In order to use the framework in your app you must have Xcode 11.0 with Swift 5.
 
 ### Run time requirements
 
-The minimum iOS version supported by the SDK is iOS 10.0.
+The SDK's minimum iOS deployment target is iOS 11.0.
 
 ## Installation method
 
