@@ -2,7 +2,7 @@
 
 ## Overview
 
-Pureprofile is a survey platform that delivers surveys through the web and mobile apps. The Pureprofile iOS SDK is an easy to use library for developers who want to integrate Purerprofile's surveying platform into their iOS apps.  
+Pureprofile is a survey platform that delivers surveys through the web and mobile apps. The Pureprofile iOS SDK is an easy to use library for developers who want to integrate Pureprofile's surveying platform into their iOS apps.  
 
 ## Project setup
 
