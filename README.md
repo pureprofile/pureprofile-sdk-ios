@@ -15,7 +15,19 @@ The SDK's minimum iOS deployment target is iOS 11.0.
 
 ## Installation method
 
-You can get the Pureprofile SDK either via CocoaPods or by manually installing it in your Xcode project.
+You can get the Pureprofile SDK as a swift package, via CocoaPods or by manually installing it in your Xcode project.
+
+### Swift Package
+
+Open your application's project in Xcode and from the File menu select Add Packages. Copy Pureprofile's Swift package repository URL
+```
+https://github.com/pureprofile/pureprofile-sdk-ios
+```
+into the search field, select `pureprofile-sdk-ios` from the results pane and select Add Package:
+
+![alt text](https://devtools.pureprofile.com/surveys/ios/assets/swift_package.png)
+
+Under Choose Package Options, select Branch: master. After the package download completes, PureprofileSDK should now be listed under Package Dependencies in the Xcode Project navigator.
 
 ### CocoaPods
 
