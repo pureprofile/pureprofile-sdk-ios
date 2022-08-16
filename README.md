@@ -80,7 +80,7 @@ The first step before accessing the Pureprofile SDK is to obtain a login token f
 | panelKey      | String(UUID)  | Yes       | key which identifies partner or app and obtained by Pureprofile
 | panelSecret   | String(UUID)  | Yes       | secret key assigned to partner
 | userKey       | String        | Yes       | unique identifier of each user (see below for more)
-| email         | String(Email) |           | email that can be used to match user
+| email         | String(Email) | Yes       | email that can be used to match user
 
 Response body:
 
