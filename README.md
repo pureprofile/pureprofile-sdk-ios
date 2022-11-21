@@ -73,14 +73,14 @@ You are now ready to use the Pureprofile SDK and allow the users of your app to 
 
 ### Login step
 
-The first step before accessing the Pureprofile SDK is to obtain a login token from Pureprofile. You can do that by calling Pureprofile's [login API]("https://pp-auth-api.pureprofile.com/api/v1/panel/login") where you have to pass the following parameters in the POST call:
+The first step before accessing the Pureprofile SDK is to obtain a login token from Pureprofile. You can do that by calling Pureprofile's [login API](https://pp-auth-api.pureprofile.com/api-docs/#/panel/post_api_v1_panel_login) where you have to pass the following parameters in the POST call:
 
 | Property name | Type          | Mandatory | Description
 |---------------|---------------|:---------:|-------------
 | panelKey      | String(UUID)  | Yes       | key which identifies partner or app and obtained by Pureprofile
 | panelSecret   | String(UUID)  | Yes       | secret key assigned to partner
 | userKey       | String        | Yes       | unique identifier of each user (see below for more)
-| email         | String(Email) | Yes       | email that can be used to match user
+| email or emailHash | String | Yes       | user's email or hashed email
 
 Response body:
 
