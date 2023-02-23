@@ -142,8 +142,11 @@ open class PureprofilePayment: NSObject {
 }
 ```
 
-The transactions API can also be used for querying Pureprofile about a transaction. The payment uuid (as returned in `PureprofilePayment`) will have to be passed as a parameter to the end-point. Values `instanceUrl` and `instanceCode` are returned from the login API. Please see the sample app [code](https://github.com/pureprofile/pureprofile-sdk-ios/blob/master/SdkSampleApp/ViewController.swift#L45) for more.
+#### Transactions
+The transactions API can optionally be used for querying Pureprofile about a transaction. The `payment-uuid` parameter in the endpoint's path is the uuid property of `PureprofilePayment` (see above). The API must be authenticated using the `pp-token` HTTP header. The pp-token header value and the path values `instanceUrl` and `instanceCode` are all returned from the [login API](https://github.com/pureprofile/pureprofile-sdk-ios/blob/master/SdkSampleApp/ViewController.swift#L52).
 ```
+curl -H "pp-token: <pp-tonen>" https://<instanceUrl>/api/v1/<instanceCode>/transactions/<payment-uuid>
+
 GET https://<instanceUrl>/api/v1/<instanceCode>/transactions/<payment-uuid>
 
 HTTP/1.1 200 OK
