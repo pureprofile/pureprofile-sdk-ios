@@ -143,18 +143,18 @@ open class PureprofilePayment: NSObject {
 ```
 
 #### Transactions
-The transactions API can optionally be used for querying Pureprofile about a transaction. The `payment-uuid` parameter in the endpoint's path is the uuid property of `PureprofilePayment` (see above). The API must be authenticated using the `pp-token` HTTP header. The pp-token header value and the path values `instanceUrl` and `instanceCode` are all returned from the [login API](https://github.com/pureprofile/pureprofile-sdk-ios/blob/master/SdkSampleApp/ViewController.swift#L52).
+The transactions API can optionally be used for querying Pureprofile about a transaction. The `transaction-uuid` parameter in the endpoint's path is the uuid property of `PureprofilePayment` (see above). The API must be authenticated using the `pp-token` HTTP header. The pp-token header value and the path values `instanceUrl` and `instanceCode` are all returned from the [login API](https://github.com/pureprofile/pureprofile-sdk-ios/blob/master/SdkSampleApp/ViewController.swift#L52).
 ```
-curl -H "pp-token: <pp-tonen>" https://<instanceUrl>/api/v1/<instanceCode>/transactions/<payment-uuid>
+curl -H "pp-token: <pp-tonen>" https://<instanceUrl>/api/v1/<instanceCode>/transactions/<transaction-uuid>
 
-GET https://<instanceUrl>/api/v1/<instanceCode>/transactions/<payment-uuid>
+GET https://<instanceUrl>/api/v1/<instanceCode>/transactions/<transaction-uuid>
 
 HTTP/1.1 200 OK
 
 {
     "status": "ok",
     "data": {
-        "uuid": "payment-uuid",
+        "uuid": "transaction-uuid",
         "value": 1.05,
         "createdAt": "2018-11-24T23:33:36+11:00",
         "campaignUuid": "campaign-uuid"
