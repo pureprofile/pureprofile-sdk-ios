@@ -163,6 +163,10 @@ HTTP/1.1 200 OK
 }
 ```
 
+Be aware, using PaymentEvent DOES NOT give you a full picture about all users transactions on a panel, as it covers only direct transactions when user completes a survey. Other transactions might be issued by automatic workers or customer support. To get information about all transactions happening on a panel, you have to implement a process that will query our back-end API. More information can be found here: [https://pp-us-ah-api.pureprofile.com/api-docs/#/panel/get_api_v1_public_transactions_panel__panelUuid_](https://pp-us-ah-api.pureprofile.com/api-docs/#/panel/get_api_v1_public_transactions_panel__panelUuid_)
+
+---------
+
 ### Count of available surveys
 In order to obtain the total number of all and paid surveys at the time of the call you can use:  
 ```swift
