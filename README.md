@@ -133,7 +133,7 @@ Objective-C example:
 }];
 ```
 
-The payment handler is used for passing back payment info whenever a user completes a survey with a reward. The PureprofilePayment class contains information about the payment where value is the amount awarded to the user for completing a survey:
+The payment handler can be used for receiving payment info whenever a user completes a survey with a reward. The `PureprofilePayment` class contains information about the payment where value is the amount awarded to the user for completing a survey:
 ```swift
 open class PureprofilePayment: NSObject {
     public let value: Double
@@ -163,7 +163,7 @@ HTTP/1.1 200 OK
 }
 ```
 
-Be aware, using PaymentEvent DOES NOT give you a full picture about all users transactions on a panel, as it covers only direct transactions when user completes a survey. Other transactions might be issued by automatic workers or customer support. To get information about all transactions happening on a panel, you have to implement a process that will query our back-end API. More information can be found here: [https://pp-us-ah-api.pureprofile.com/api-docs/#/panel/get_api_v1_public_transactions_panel__panelUuid_](https://pp-us-ah-api.pureprofile.com/api-docs/#/panel/get_api_v1_public_transactions_panel__panelUuid_)
+Be aware that `PureprofilePayment` events DO NOT give you a full picture about all user transactions, as they cover only direct transactions when users get rewarded after completing a survey. Other transactions might be issued by automatic workers or customer support. To get information about all transactions happening on a panel you have to implement a process that will query our back-end API. More information can be found [here](https://pp-us-ah-api.pureprofile.com/api-docs/#/panel/get_api_v1_public_transactions_panel__panelUuid_).
 
 ---------
 
