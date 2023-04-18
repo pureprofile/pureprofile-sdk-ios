@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|  
     s.name              = 'Pureprofile'
-    s.version           = '1.9.3'
+    s.version           = '1.10.0'
     s.summary           = 'Pureprofile survey monetization SDK' 
     s.homepage          = 'https://www.pureprofile.com'
     s.documentation_url = 'https://github.com/pureprofile/pureprofile-sdk-ios/'
     s.author            = { 'Pureprofile Pty Ltd' => 'product@pureprofile.com' }
-    s.license           = { :type => 'Commercial', :file => 'LICENSE' }
+    s.license           = { :type => 'Commercial' }
     s.platform          = :ios
     s.source            = { :http => 'https://devtools.pureprofile.com/surveys/ios/latest/PureprofileSDK.zip' }
     s.description       = <<-DESC
