@@ -16,7 +16,7 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .binaryTarget(
             name: "PureprofileSDK",
-            url: "https://devtools.pureprofile.com/surveys/ios/latest/PureprofileSDK_v1.10.2.zip",
-            checksum: "183f985516c75789b9392f487496b81fde04dde8f200fd0220d79169cd88fdaf"),
+            url: "https://devtools.pureprofile.com/surveys/ios/latest/PureprofileSDK.zip",
+            checksum: "62caaff1a7926b8a3d3670bb7c5548ccc581fb7a89426a027c187d48f2d765cd"),
     ]
 )
