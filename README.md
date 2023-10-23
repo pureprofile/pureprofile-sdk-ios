@@ -112,13 +112,23 @@ As part of the login process it is possible to encounter the 'membership limit r
 
 ### Integrate SDK in your app
 
-Having obtained a user token it's then really easy to enter in Pureprofile's surveying environment. All you need is to create a `Pureprofile` object and then present it from any UIViewController:
+Having obtained a user token it's then really easy to enter in Pureprofile's surveying environment. All you need is to create a `Pureprofile` object and use the `open` API to present it from any UIViewController:
+
+```swift
+func open(
+    fromViewController: UIViewController,
+    loginToken: String,
+    allowUseAdvertisingID: Bool = false,
+    exitCallback: (() -> Void)? = nil,
+    paymentHandler: @escaping (PureprofilePayment) -> Void
+)
+```
 
 Swift example:
 ```swift
 import PureprofileSDK
 
-Pureprofile().open(fromViewController: self, loginToken: "pureprofile-login-token") { payment in
+Pureprofile().open(fromViewController: self, loginToken: "pureprofile-login-token", exitCallback: { print("Pureprofile has exited") }) { payment in
     print("Received payment of \(payment.value) with payment uuid: \(payment.uuid)")
 }
 ```
