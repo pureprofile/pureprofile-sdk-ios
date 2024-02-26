@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|  
     s.name              = 'Pureprofile'
-    s.version           = '1.13.0'
+    s.version           = '1.14.0'
     s.summary           = 'Pureprofile survey monetization SDK' 
     s.homepage          = 'https://www.pureprofile.com'
     s.documentation_url = 'https://github.com/pureprofile/pureprofile-sdk-ios/'
