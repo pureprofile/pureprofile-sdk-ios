@@ -17,6 +17,6 @@ let package = Package(
         .binaryTarget(
             name: "PureprofileSDK",
             url: "https://devtools.pureprofile.com/surveys/ios/latest/PureprofileSDK.zip",
-            checksum: "cd0f2222be506359b711c1602e799fe8313dc560bbe8b9921ceca24d7e62dc32"),
+            checksum: "2513c5c738eb6469f4de51314bafac631f36ae3d0fba74aeae337c0210853121"),
     ]
 )
