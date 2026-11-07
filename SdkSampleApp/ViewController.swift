@@ -100,15 +100,26 @@ class ViewController: UIViewController {
         }
     }
     
+    /**
+     panelKey - key which identifies partner or app, obtained by Pureprofile. Contact us at product@pureprofile.com to get one
+     panelSecret - secret paired with panelKey, obtained by Pureprofile
+     userKey - unique identifier of each user, see README.md for more
+     email - email that can be used to match user (optional)
+     */
+    private let panelKey = "YOUR_PANEL_KEY"
+    private let panelSecret = "YOUR_PANEL_SECRET"
+    private let userKey = "YOUR_USER_KEY"
+    private let email = "user@example.com"
+
     private func login() {
-        /**
-         panelKey - key which identifies partner or app, obtained by Pureprofile. Contact us at product@pureprofile.com to get one
-         panelSecret - secret paired with panelKey, obtained by Pureprofile
-         userKey - unique identifier of each user, see README.md for more
-         email - email that can be used to match user (optional)
-         */
-        let parameters = ["panelKey": "f986e3ac-32c9-42e9-944d-9801dbe28d97", "panelSecret": "c0e6b322-f654-4583-8202-3136504e7843",
-                          "userKey": "3467b2a9-c463-4fe5-96a3-e5c3c8934bcc", "email": "sdktest@pureprofile.com"]
+        guard panelKey != "YOUR_PANEL_KEY", panelSecret != "YOUR_PANEL_SECRET" else {
+            activity.stopAnimating()
+            statusLabel.numberOfLines = 0
+            statusLabel.text = "Add your panelKey and panelSecret in ViewController.swift. Contact product@pureprofile.com to get them."
+            return
+        }
+
+        let parameters = ["panelKey": panelKey, "panelSecret": panelSecret, "userKey": userKey, "email": email]
         pureprofileLogin(parameters: parameters)  { result in
             switch result {
             case .success(let loginModel):
