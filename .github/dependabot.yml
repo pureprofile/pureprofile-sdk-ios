@@ -1,0 +1,19 @@
+# Dependabot configuration — SECURITY UPDATES ONLY, grouped.
+# open-pull-requests-limit: 0 disables routine version-update PRs while
+# leaving Dependabot SECURITY-update PRs enabled. The groups block
+# (applies-to: security-updates) batches security fixes into one PR per
+# ecosystem ("Grouped security updates"). Security updates also require the
+# repo toggle: Settings -> Code security -> Dependabot security updates.
+version: 2
+updates:
+  # Swift Package Manager (Package.swift)
+  - package-ecosystem: "swift"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 0
+    groups:
+      security:
+        applies-to: security-updates
+        patterns:
+          - "*"
